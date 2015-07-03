@@ -1,0 +1,22 @@
+{
+  "name": "kulor-plugin-carousel",
+  "version": "0.0.1",
+  "description": "carousel",
+  "main": "index.jade",
+  "keywords": [
+    "kulor-carousel"
+  ],
+  "authors": [
+    "bo.cheng <chen8114@sina.com>"
+  ],
+  "repository"  : {
+    "type"    : "git" ,
+    "url"     : "git@github.com:nihaox1/kulor-plugin-carousel.git"
+  } ,
+  "kulor"     : {
+    "requireName"   : "carousel" ,
+    "jsFileName"    : "carousel"
+  } ,
+  "license": "MIT",
+  "homepage": "https://github.com/nihaox1/kulor"
+}
