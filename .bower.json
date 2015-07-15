@@ -1,0 +1,32 @@
+{
+  "name": "kulor-plugin-carousel",
+  "version": "0.0.1",
+  "description": "carousel",
+  "main": "carousel.js",
+  "keywords": [
+    "kulor-carousel"
+  ],
+  "authors": [
+    "bo.cheng <chen8114@sina.com>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kulor-developer/kulor-plugin-carousel.git"
+  },
+  "kulor": {
+    "requireName": "carousel",
+    "jsFileName": "carousel"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/nihaox1/kulor",
+  "_release": "0.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.0.1",
+    "commit": "3c9c78b0b628b2992cf1612cf667edc554ed22f2"
+  },
+  "_source": "git://github.com/kulor-developer/kulor-plugin-carousel.git",
+  "_target": "~0.0.1",
+  "_originalSource": "kulor-plugin-carousel",
+  "_direct": true
+}
