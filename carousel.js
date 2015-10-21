@@ -8,18 +8,20 @@
 define( "Carousel" , [ "Base" , "RequireFile" ] , function( Base , RF ){
     "use strict";
 
-    var _rf         = new RF( [ 
-            "//cdn.jsdelivr.net/jquery.slick/1.5.5/slick.css" , 
-            "//cdn.jsdelivr.net/jquery.slick/1.5.5/slick-theme.css"
-        ] , function(){
-            _ready  = true;
-            for( var i = _eventList.length; i--; ){
-                _eventList[ i ]();
-            }
-        } ) ,
+    var Carousel ,
         _ready      = false ,
         _eventList  = [] ,
-        Carousel;
+        _rf ,
+        _initRF     = function(){
+            _rf         = new RF( [ 
+                "css/plugin/slick.css"
+            ] , function(){
+                _ready  = true;
+                for( var i = _eventList.length; i--; ){
+                    _eventList[ i ]();
+                }
+            } ) 
+        };
 
     Carousel        = Base.extend( function( $dom , opt ){
         var _func;
@@ -30,15 +32,30 @@ define( "Carousel" , [ "Base" , "RequireFile" ] , function( Base , RF ){
             $dom    = $( $dom );
             this.$dom   = $dom;
             $dom.slick( opt );
+            if( typeof opt.callback === "function" ){
+                opt.callback.call( $dom );
+            }
         }
         if( !_ready ){
             _eventList.push( _func );
+            if( !_rf ){
+                _initRF();
+            }
         } else {
             _func();
         }
     } , {
         
     } );
+
+    if( !Function.prototype.bind ){
+        Function.prototype.bind     = function( that ){
+            var _self   = this;
+            return typeof this === "function" ? function(){
+                _self.apply( that , arguments );
+            } : function(){}
+        }
+    }
 
     var Slick = window.Slick || {};
 
@@ -1830,7 +1847,11 @@ define( "Carousel" , [ "Base" , "RequireFile" ] , function( Base , RF ){
 
         if (_.options.autoplay === true && _.options.pauseOnHover === true) {
             _.paused = paused;
-            _.autoPlayClear();
+            if (!paused) {
+                _.autoPlay();
+            } else {
+                _.autoPlayClear();
+            }
         }
     };
 
